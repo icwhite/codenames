@@ -1,0 +1,3 @@
+[submodule "cultural-codes/codenames"]
+	path = cultural-codes/codenames
+	url = https://github.com/SALT-NLP/codenames/

@@ -1,0 +1,6 @@
+numpy
+torch
+pandas
+fire
+torchtext
+wandb
