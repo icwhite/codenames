@@ -15,7 +15,7 @@ setup(
     version='1.0.0',
     description='Code for Cross-Cultural Communication with RSA in Codenames',
     url='https://github.com/',
-    author='Michelle Pan, Sashrika Pandey, Isadora White, and Kuba Grudzien',
+    author='Michelle Pan, Sashrika Pandey, and Isadora White',
     packages=find_packages(),
     install_requires=read_requirements_file('requirements.txt'),
     license='LICENCE',

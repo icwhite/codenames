@@ -4,7 +4,7 @@ import argparse
 import pandas as pd
 
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from llama_exps.utils import add_player_demo_col, ALL_DEMOS, HF_BATCH_SIZE, load_model_and_tokenizer, hf_llama_generate
+from llama_exps.utils import add_player_demo_col, ALL_DEMOS, load_model_and_tokenizer, hf_llama_generate
 
 def generate_clues(model: AutoModelForCausalLM, 
                    tokenizer: AutoTokenizer,
@@ -50,7 +50,7 @@ def generate_clues(model: AutoModelForCausalLM,
         prompts.append(prompt)
 
     # allow the model to generate a couple of tokens for more complex clues. we'll parse up until the ending quotation mark
-    batch_size = 2 # experimentally, llama3 isn't happy with a large batch size FIXME
+    batch_size = 8
     clue_gens, clue_lps = hf_llama_generate(model, tokenizer, prompts, max_new_tokens=3, batch_size=batch_size)
     clue_gens = [i.split("'")[0] if "'" in i else i for i in clue_gens]
 
