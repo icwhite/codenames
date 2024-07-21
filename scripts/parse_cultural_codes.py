@@ -1,5 +1,4 @@
 import pandas as pd
-from IPython import embed
 import re
 
 def parse_generate_guess(split: str, save_file: bool = False) -> pd.DataFrame:
@@ -26,7 +25,7 @@ def parse_generate_guess(split: str, save_file: bool = False) -> pd.DataFrame:
     df = df[df["guess"].notna()]
     
     # filter guesses out of not guesses
-    for i, row in df.iterrows():
+    for _, row in df.iterrows():
         guesses = row["guess"].split(", ")
         not_guesses = [x for x in row["not_guess"].split(", ") if x not in guesses]
         row["not_guess"] = ", ".join(not_guesses)
@@ -196,12 +195,8 @@ def parse_correct_clues(split:str, save_file: bool = False) -> pd.DataFrame:
     """
     clue_df = pd.read_csv(f'cultural-codes/codenames/data/clue_generation_task/{split}.csv')
 
-    # parse_target = lambda x: x.split('target: ')[1].split(', hint:')[0].strip()
-
     df = pd.DataFrame()
     df['clue'] = clue_df['output']
-    # df['target'] = clue_df['base_text'].apply(parse_target)
-
 
     for i, row in clue_df.iterrows():
         total = []
@@ -219,9 +214,6 @@ def parse_correct_clues(split:str, save_file: bool = False) -> pd.DataFrame:
             for key, value in parse_string(row[culture_type]).items():
                 df.loc[i, key] = value
     return df
-    
-    
-    
 
 def parse_sub_levels(split: str, save_file: bool = False) -> pd.DataFrame:
     """

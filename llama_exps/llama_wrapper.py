@@ -21,12 +21,15 @@ from llama.generation import sample_top_p, Dialog, ChatPrediction, SPECIAL_TAGS,
 from llama.model import ModelArgs, Transformer
 from llama.tokenizer import Tokenizer
 
+# Set `MODELS_DIR` to your local directory where Llama model weights are stored.
+# See https://github.com/meta-llama/llama for instructions.
+MODELS_DIR = ''
 
 LLAMA_7B_TEXT_CKPT_DIR = f'{MODELS_DIR}/llama-2-7b/'
 LLAMA_7B_CHAT_CKPT_DIR = f'{MODELS_DIR}/llama-2-7b-chat/'
 LLAMA_13B_TEXT_CKPT_DIR = f'{MODELS_DIR}/llama-2-13b/'
 LLAMA_13B_CHAT_CKPT_DIR = f'{MODELS_DIR}/llama-2-13b-chat/'
-LLAMA_TOKENIZER_PATH = f'{MODELS_DIR}/tokenizer/tokenizer.model'
+LLAMA_TOKENIZER_PATH = f'{MODELS_DIR}/tokenizer.model'
 
 def tile_seqs(seqs, n):
     """
@@ -50,6 +53,7 @@ def repeat_seqs(seqs, n):
 
     return output
 
+# Code adapted from https://github.com/sashrikap/context-steering
 class LlamaWrapper(Llama):
     def __init__(self, model: Transformer, tokenizer: Tokenizer):
         super().__init__(model, tokenizer)

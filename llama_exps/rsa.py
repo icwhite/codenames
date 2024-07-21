@@ -4,8 +4,6 @@ import argparse
 import json
 import pandas as pd
 
-from llama_exps.clue_selection import generate_clues
-
 from llama_exps.utils import load_model_and_tokenizer, get_fixed_generation_prob
 
 def main(model_name: str,
@@ -36,6 +34,7 @@ def main(model_name: str,
     # df.to_csv('results/intermediate_rsa_clues.csv')
     # print("Finished generating clues.")
 
+    # Alternatively, read in from intermediate file
     df = pd.read_csv('results/intermediate_rsa_clues.csv')
 
     # Take goal/avoid/neutral + clue => have LlamaGuesser identify guesses (2)
@@ -79,7 +78,7 @@ def main(model_name: str,
                            tokenizer,
                            sequences=repeated_prompts, 
                            responses=repeated_responses,
-                           batch_size=2) # FIXME for llama3 constraints
+                           batch_size=8)
 
         for q_idx, w in enumerate(word_opts): # len(word_opts) == n_samples, i.e. number of questions / unrepeated prompts
             num_words = len(w)
