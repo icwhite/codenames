@@ -18,11 +18,13 @@ Run ```pip install -e .```
 We utilize the [Cultural Codes Dataset](https://github.com/SALT-NLP/codenames) for running our Codenames Duet experiment. This repository should be cloned in the root directory.
 
 ## Word Embeddings
+You can find code for word embeddings in codenames/embeddings and code for training embeddings in codenames/embeddings/glove_embeddings.py. 
 
 ## LLM Prompting
 Experiment files for clue selection and guess generation using the cross cultural codes dataset can be found in `llama_exps/`. You will need to download weights for Llama2; instructions can be found in the [Llama repo](https://github.com/meta-llama/llama). To run experiments with the Llama models, this repository should be cloned in the root directory.
 
 ## Interaction
+Files for RSA+C3 codenames giver can be found in codenames/players/match_giver.py, RSA in codenames/players/pragmatic_giver.py and the literal giver in codenames/players/similarities_giver.py. To run interaction experiments you can run these in 
 
 # Citing
 If you use our code, please consider citing:
