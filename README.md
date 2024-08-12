@@ -1,9 +1,14 @@
-Code for the paper "Communicate to Play: Pragmatic Reasoning for Efficient Cross-Cultural Communication in Codenames" by Isadora White, Sashrika Pandey, and Michelle Pan.
+Code for the paper [Communicate to Play: Pragmatic Reasoning for Efficient Cross-Cultural Communication in Codenames](https://arxiv.org/abs/2408.04900) by Isadora White, Sashrika Pandey, and Michelle Pan.
+
+![rsac3](https://github.com/user-attachments/assets/38314436-d110-4021-bdc9-1a30a0923014)
 
 We provide our code for:
 1. Creating Codenames players using contrastive learning of an embedding space and LLM prompting
 2. Studying culturally induced differences in common ground in trained models
 3. Implementing RSA+C3 to infer socioculutral context in interaction
+
+# Abstract
+Cultural differences in common ground may result in pragmatic failure and misunderstandings during communication. We develop our method Rational Speech Acts for Cross-Cultural Communication (RSA+C3) to resolve cross-cultural differences in common ground. To measure the success of our method, we study RSA+C3 in the collaborative referential game of Codenames Duet and show that our method successfully improves collaboration between simulated players of different cultures. Our contributions are threefold: (1) creating Codenames players using contrastive learning of an embedding space and LLM prompting that are aligned with human patterns of play, (2) studying culturally induced differences in common ground reflected in our trained models, and (3) demonstrating that our method RSA+C3 can ease cross-cultural communication in gameplay by inferring sociocultural context from interaction.
 
 # Installation
 Run ```pip install -e .```
@@ -20,4 +25,15 @@ Experiment files for clue selection and guess generation using the cross cultura
 ## Interaction
 
 # Citing
-Coming soon!
+If you use our code, please consider citing:
+```
+@misc{white2024communicatetoplay,
+      title={Communicate to Play: Pragmatic Reasoning for Efficient Cross-Cultural Communication in Codenames}, 
+      author={Isadora White and Sashrika Pandey and Michelle Pan},
+      year={2024},
+      eprint={2408.04900},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2408.04900}, 
+}
+```
